@@ -21,16 +21,14 @@ jobs:
           path: openTdataCH--showcases
           fetch-depth: 1
 
-      - name: Show folder structure
-        run: |
-          echo "Current directory: $(pwd)"
-          echo "Repo contents:"
-          ls -al
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: openTdataCH--showcases/requirements.txt
 
-      - name: Recursively list everything
+      - name: Install Python dependencies
         run: |
-          echo "Recursive listing of all folders:"
-          find . -type d | while read d; do
-            echo "--- $d ---"
-            ls -al "$d"
-          done
+          python -m pip install --upgrade pip
+          pip install -r openTdataCH--showcases/requirements.txt
