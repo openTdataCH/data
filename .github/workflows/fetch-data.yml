@@ -1,0 +1,27 @@
+name: Fetch CSVs from external repo → Release assets
+
+on:
+  push:
+    branches:
+      - feature/deploy-data
+  workflow_dispatch:
+
+jobs:
+  fetch-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v4
+
+      - name: Checkout external repo
+        uses: actions/checkout@v4
+        with:
+          repository: openTdataCH/showcases
+          ref: develop
+          path: external
+          fetch-depth: 1
+
+      - name: Open Web Client Directory
+        run: |
+          ls -al
+          ls -al showcases
