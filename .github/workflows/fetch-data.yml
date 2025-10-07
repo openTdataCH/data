@@ -18,7 +18,7 @@ jobs:
         with:
           repository: openTdataCH/showcases
           ref: develop
-          path: external
+          path: openTdataCH--showcases
           fetch-depth: 1
 
       - name: Show folder structure
