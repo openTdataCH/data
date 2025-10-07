@@ -21,7 +21,16 @@ jobs:
           path: external
           fetch-depth: 1
 
-      - name: Open Web Client Directory
+      - name: Show folder structure
         run: |
+          echo "Current directory: $(pwd)"
+          echo "Repo contents:"
           ls -al
-          ls -al showcases
+
+      - name: Recursively list everything
+        run: |
+          echo "Recursive listing of all folders:"
+          find . -type d | while read d; do
+            echo "--- $d ---"
+            ls -al "$d"
+          done
