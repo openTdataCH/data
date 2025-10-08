@@ -14,8 +14,10 @@ git clone --depth 1 --branch $REPO_BRANCH https://github.com/openTdataCH/showcas
 # git -C external log -1 --pretty='format:%h %ad %s' --date=iso
 
 # STEP 2 - install Python
+
 python3 -m venv $DIR/.venv
+echo "$DIR/.venv/bin" >> $GITHUB_PATH # for future runs
 source $DIR/.venv/bin/activate
+
 python3 -m pip install --upgrade pip
 python3 -m pip install --requirement $REPO_PATH/requirements.txt
-which python3
