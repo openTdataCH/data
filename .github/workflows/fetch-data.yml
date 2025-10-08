@@ -26,4 +26,4 @@ jobs:
 
       - name: Fetch train formation
         run: |
-          bash cli-fetch-train-formation.sh
+          bash ./cli-fetch-train-formation.sh
