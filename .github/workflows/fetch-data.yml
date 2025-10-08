@@ -6,6 +6,11 @@ on:
       - feature/deploy-data
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 concurrency:
   group: pages
   cancel-in-progress: false # queue instead of cancel
@@ -31,3 +36,10 @@ jobs:
       - name: Prepare site
         run: |
           bash ./cli-common-create-site.sh occupancy-forecast-json-dataset
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
