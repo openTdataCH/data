@@ -7,9 +7,6 @@ DATASET="${1:?Usage: $0 <dataset>}"
 
 BASE_URL=https://opentdatach.github.io/data
 
-rm -rf $DIR/site
-mkdir -p $DIR/site
-
 # STEP 1 - Rehydrate everything from the previous site EXCEPT $DATASET/*
 curl -fsL -o /tmp/manifest.txt '$BASE_URL/__manifest.txt' 2>/dev/null || : > /tmp/manifest.txt
 if [ -s /tmp/manifest.txt ]; then
