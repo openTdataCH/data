@@ -39,5 +39,7 @@ jobs:
           python3 openTdataCH--showcases/tools/scripts/setup.py
 
       - name: Fetch train formation
+        env:
+          OTD_KEY: ${{ secrets.OTD_KEY }}
         run: |
           bash fetch-train-formation.sh
