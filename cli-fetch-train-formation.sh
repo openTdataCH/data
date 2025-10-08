@@ -15,10 +15,8 @@ for i in {0..3}; do
     # Check if directory exists
     # ./data/opentransportdata.swiss/occupancy-forecast-json-dataset/occupancyforecastjson/2025-11-16
     if [ -d "$PACKAGE_PATH/occupancyforecastjson/$date" ]; then
-        # Create operator directory
-        mkdir -p "$DIR/dist/$PACKAGE_ID/$date"
-
-        cp "$PACKAGE_PATH/occupancyforecastjson/$date/"*.json "$DIR/dist/$PACKAGE_ID/$date/."
+        mkdir -p "$DIR/site/$PACKAGE_ID/$date"
+        cp "$PACKAGE_PATH/occupancyforecastjson/$date/"*.json "$DIR/site/$PACKAGE_ID/$date/."
     fi
 done
 
