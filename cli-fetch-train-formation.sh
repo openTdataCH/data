@@ -6,8 +6,6 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 PACKAGE_ID=occupancy-forecast-json-dataset
 PACKAGE_PATH=$DIR/openTdataCH--showcases/data/opentransportdata.swiss/$PACKAGE_ID
 
-which python3
-
 python3 $DIR/openTdataCH--showcases/tools/ckan-utils/fetch_package_cli.py --package_id $PACKAGE_ID
 
 # Process only today and next 3 days
