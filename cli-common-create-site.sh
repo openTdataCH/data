@@ -9,6 +9,7 @@ BASE_URL=https://opentdatach.github.io/data
 
 # STEP 1 - Rehydrate everything from the previous site EXCEPT $DATASET/*
 curl -fsL -o /tmp/manifest.txt '$BASE_URL/__manifest.txt' 2>/dev/null || : > /tmp/manifest.txt
+cat /tmp/manifest.txt
 if [ -s /tmp/manifest.txt ]; then
   while IFS= read -r rel_path; do
     [ -z "$rel_path" ] && continue
