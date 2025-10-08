@@ -16,8 +16,8 @@ if [ -s /tmp/manifest.txt ]; then
     [ "$rel_path" = "__manifest.txt" ] && continue
     [ "$rel_path" = ".nojekyll" ] && continue
 
-    if [[ $rel == $DATASET/* ]]; then
-        echo "ignore ... $rel"
+    if [[ $rel_path == $DATASET/* ]]; then
+        echo "ignore ... $rel_path"
         continue
     fi
 
