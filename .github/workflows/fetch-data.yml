@@ -38,8 +38,10 @@ jobs:
         run: |
           python3 openTdataCH--showcases/tools/scripts/setup.py
 
+      - name: Override .env values
+        run: |
+          echo "OTD_KEY=${{ secrets.OTD_KEY }}" >> $GITHUB_ENV
+
       - name: Fetch train formation
-        env:
-          OTD_KEY: ${{ secrets.OTD_KEY }}
         run: |
           bash fetch-train-formation.sh
