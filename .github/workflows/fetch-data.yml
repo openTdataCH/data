@@ -17,7 +17,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: openTdataCH/showcases
-          ref: develop
+          # ref: develop
+          ref: feature/fix-fetch-atlas-package
           path: openTdataCH--showcases
           fetch-depth: 1
 
