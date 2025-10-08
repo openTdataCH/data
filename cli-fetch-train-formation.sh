@@ -20,7 +20,7 @@ for i in {0..3}; do
     fi
 done
 
-find $DIR/dist -type d | while read d; do
+find $DIR/site -type d | while read d; do
     echo "--- $d ---"
     ls -al "$d"
 done
