@@ -19,3 +19,11 @@ jobs:
 
       - name: Install Python (venv)
         run: bash cli-setup-python.sh
+
+      - name: Override .env values
+        run: |
+          echo "OTD_KEY=${{ secrets.OTD_KEY }}" >> $GITHUB_ENV
+
+      - name: Fetch train formation
+        run: |
+          bash cli-fetch-train-formation.sh
