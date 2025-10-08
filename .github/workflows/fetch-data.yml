@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Python (venv)
-        run: bash cli-setup-python.sh
+        run: bash ./cli-common-setup-python.sh
 
       - name: Override .env values
         run: |
