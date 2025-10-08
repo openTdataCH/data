@@ -21,3 +21,6 @@ source $DIR/.venv/bin/activate
 
 python3 -m pip install --upgrade pip
 python3 -m pip install --requirement $REPO_PATH/requirements.txt
+
+# STEP 3 - create data folders
+python3 $REPO_PATH/tools/scripts/setup.py
