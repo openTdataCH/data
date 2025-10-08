@@ -11,7 +11,7 @@ rm -rf $DIR/site
 mkdir -p $DIR/site
 
 # STEP 1 - Rehydrate everything from the previous site EXCEPT $DATASET/*
-curl -fsSLo /tmp/manifest.txt $BASE_URL/__manifest.txt || : > /tmp/manifest.txt
+curl -fsL -o /tmp/manifest.txt '$BASE_URL/__manifest.txt' 2>/dev/null || : > /tmp/manifest.txt
 if [ -s /tmp/manifest.txt ]; then
   while IFS= read -r rel_path; do
     [ -z "$rel_path" ] && continue
