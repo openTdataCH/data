@@ -18,3 +18,4 @@ python3 -m venv $DIR/.venv
 source $DIR/.venv/bin/activate
 python3 -m pip install --upgrade pip
 python3 -m pip install --requirement $REPO_PATH/requirements.txt
+which python3
