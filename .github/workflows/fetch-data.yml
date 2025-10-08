@@ -45,3 +45,16 @@ jobs:
       - name: Fetch train formation
         run: |
           bash fetch-train-formation.sh
+
+      - name: Upload to Release tag 'latest'
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: occupancy-forecast-json-dataset-latest
+          release_name: occupancy-forecast-json-dataset latest
+          body: 'Automated dataset publish'
+          file: dist/*
+          file_glob: true
+          overwrite: true
+          draft: false
+          prerelease: false
