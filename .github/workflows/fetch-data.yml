@@ -17,35 +17,5 @@ jobs:
       - name: Checkout current repo
         uses: actions/checkout@v4
 
-      - name: Checkout external repo
-        uses: actions/checkout@v4
-        with:
-          repository: openTdataCH/showcases
-          # ref: develop
-          ref: feature/fix-fetch-atlas-package
-          path: openTdataCH--showcases
-          fetch-depth: 1
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: 'pip'
-          cache-dependency-path: openTdataCH--showcases/requirements.txt
-
-      - name: Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip 
-          pip install -r openTdataCH--showcases/requirements.txt
-          
-      - name: Prepare fetch folders
-        run: |
-          python3 openTdataCH--showcases/tools/scripts/setup.py
-
-      - name: Override .env values
-        run: |
-          echo "OTD_KEY=${{ secrets.OTD_KEY }}" >> $GITHUB_ENV
-
-      - name: Fetch train formation
-        run: |
-          bash fetch-train-formation.sh
+      - name: Install Python (venv)
+        run: ./cli-setup-python.sh
