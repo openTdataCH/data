@@ -46,6 +46,11 @@ jobs:
         run: |
           bash fetch-train-formation.sh
 
+      - name: Show dist contents
+        run: |
+          echo "=== dist listing ==="
+          ls -lah dist || true
+
       - name: Upload to Release tag 'latest'
         uses: svenstaro/upload-release-action@v2
         with:
