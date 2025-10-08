@@ -27,3 +27,7 @@ jobs:
       - name: Fetch train formation
         run: |
           bash ./cli-fetch-train-formation.sh
+
+      - name: Prepare site
+        run: |
+          bash ./cli-common-create-site.sh occupancy-forecast-json-dataset
