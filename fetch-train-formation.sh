@@ -5,3 +5,8 @@ find $DIR/openTdataCH--showcases/tools/ckan-utils/data -type d | while read d; d
     echo "--- $d ---"
     ls -al "$d"
 done
+
+find $DIR/openTdataCH--showcases/data -type d | while read d; do
+    echo "--- $d ---"
+    ls -al "$d"
+done
