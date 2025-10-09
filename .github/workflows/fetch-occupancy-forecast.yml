@@ -32,9 +32,9 @@ jobs:
         run: |
           echo "OTD_KEY=${{ secrets.OTD_KEY }}" >> $GITHUB_ENV
 
-      - name: Fetch train formation
+      - name: Fetch dataset
         run: |
-          bash ./cli-fetch-train-formation.sh
+          bash ./cli-fetch-occupancy-forecast.sh
 
       - name: Prepare site
         run: |
