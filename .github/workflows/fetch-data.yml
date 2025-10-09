@@ -5,7 +5,9 @@ on:
     branches:
       - main
       - feature/deploy-data
-  workflow_dispatch:
+  schedule:
+    - cron: '0 5 * * *'   # Every day at 05:00 UTC
+  workflow_dispatch:      # Allows manual trigger
 
 permissions:
   contents: read
