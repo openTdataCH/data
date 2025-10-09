@@ -1,0 +1,1 @@
+REPO_PATH=$DIR/external/openTdataCH--showcases
