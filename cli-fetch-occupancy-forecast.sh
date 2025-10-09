@@ -3,10 +3,11 @@ set -euo pipefail
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
+source $DIR/cli-common.sh
 PACKAGE_ID=occupancy-forecast-json-dataset
-PACKAGE_PATH=$DIR/openTdataCH--showcases/data/opentransportdata.swiss/$PACKAGE_ID
+PACKAGE_PATH=$REPO_PATH/data/opentransportdata.swiss/$PACKAGE_ID
 
-python3 $DIR/openTdataCH--showcases/tools/ckan-utils/fetch_package_cli.py --package_id $PACKAGE_ID
+python3 $REPO_PATH/tools/ckan-utils/fetch_package_cli.py --package_id $PACKAGE_ID
 
 # Process only today and next 3 days
 for i in {0..3}; do

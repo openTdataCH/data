@@ -3,7 +3,8 @@ set -euo pipefail
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-REPO_PATH=$DIR/openTdataCH--showcases
+source $DIR/cli-common.sh
+
 # REPO_BRANCH=develop
 # TODO - change to develop
 REPO_BRANCH=feature/fix-fetch-atlas-package
