@@ -3,6 +3,7 @@ name: Fetch/Publish occupancy-forecast-json-dataset
 on:
   push:
     branches:
+      - main
       - feature/deploy-data
   workflow_dispatch:
 
