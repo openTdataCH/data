@@ -31,9 +31,18 @@ fi
 
 # STEP 2 - Rebuild manifest & disable Jekyll
 touch $DIR/site/.nojekyll
-( cd $DIR/site && find . -type f -printf '%P\n' \
-    | grep -Ev '^(__manifest\.txt|\.nojekyll)$' \
-    | sort > __manifest.txt )
+
+if find . -printf '' >/dev/null 2>&1; then
+  # GNU find
+  ( cd "$DIR/site" && find . -type f -printf '%P\n' \
+      | grep -Ev '^(__manifest\.txt|\.nojekyll)$' \
+      | sort > __manifest.txt )
+else
+  # BSD/macOS find
+  ( cd "$DIR/site" && find . -type f \
+      ! -name '__manifest.txt' ! -name '.nojekyll' \
+      | sed 's|^\./||' | sort > __manifest.txt )
+fi
 
 # DEBUG BELOW
 find $DIR/site -type d | while read d; do

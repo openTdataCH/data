@@ -10,7 +10,13 @@ python3 $DIR/openTdataCH--showcases/tools/ckan-utils/fetch_package_cli.py --pack
 
 # Process only today and next 3 days
 for i in {0..3}; do
-    date=$(date -d "+$i days" +%Y-%m-%d)
+    if date --version >/dev/null 2>&1; then
+        # GNU date
+        date=$(date -d "+$i days" +%Y-%m-%d)
+    else
+        # BSD/macOS date
+        date=$(date -v+"${i}"d +%Y-%m-%d)
+    fi
 
     # Check if directory exists
     # ./data/opentransportdata.swiss/occupancy-forecast-json-dataset/occupancyforecastjson/2025-11-16
