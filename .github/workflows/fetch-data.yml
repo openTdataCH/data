@@ -1,4 +1,4 @@
-name: Fetch CSVs from external repo → Release assets
+name: Fetch/Publish occupancy-forecast-json-dataset
 
 on:
   push:
