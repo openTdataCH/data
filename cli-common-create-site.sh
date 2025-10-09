@@ -43,9 +43,3 @@ else
       ! -name '__manifest.txt' ! -name '.nojekyll' \
       | sed 's|^\./||' | sort > __manifest.txt )
 fi
-
-# DEBUG BELOW
-find $DIR/site -type d | while read d; do
-    echo "--- $d ---"
-    ls -al "$d"
-done

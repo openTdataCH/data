@@ -28,8 +28,3 @@ for i in {0..3}; do
         cp "$PACKAGE_PATH/occupancyforecastjson/$date/"*.json "$DIR/site/$PACKAGE_ID/$date/."
     fi
 done
-
-# find $DIR/site -type d | while read d; do
-#     echo "--- $d ---"
-#     ls -al "$d"
-# done
