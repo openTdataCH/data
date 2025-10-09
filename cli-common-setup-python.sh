@@ -14,8 +14,7 @@ rm -rf $REPO_PATH
 git clone --depth 1 --branch $REPO_BRANCH https://github.com/openTdataCH/showcases.git $REPO_PATH
 # git -C external log -1 --pretty='format:%h %ad %s' --date=iso
 
-# STEP 2 - install Python
-
+# STEP 2 - install Python + dependencies
 python3 -m venv $DIR/.venv
 
 source $DIR/.venv/bin/activate
