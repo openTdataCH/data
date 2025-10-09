@@ -4,6 +4,8 @@ set -euo pipefail
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 source $DIR/cli-common.sh
+source $DIR/.venv/bin/activate
+
 PACKAGE_ID=occupancy-forecast-json-dataset
 PACKAGE_PATH=$REPO_PATH/data/opentransportdata.swiss/$PACKAGE_ID
 
