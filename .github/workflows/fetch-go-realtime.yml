@@ -1,0 +1,47 @@
+name: Fetch/Publish GO-realtime
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '15 12 * * 1-5'   # daily, MON-FRI
+  workflow_dispatch:      # Allows manual trigger
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false # queue instead of cancel
+
+jobs:
+  fetch-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current repo
+        uses: actions/checkout@v4
+
+      - name: Install Python (venv)
+        run: bash ./cli-common-setup-python.sh
+
+      - name: Override .env values
+        run: |
+          echo "OTD_KEY=${{ secrets.OTD_KEY }}" >> $GITHUB_ENV
+
+      - name: Fetch GO-realtime
+        run: |
+          bash ./cli-common-fetch-dataset.sh go-realtime
+
+      - name: Prepare site
+        run: |
+          bash ./cli-common-create-site.sh go-realtime
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
