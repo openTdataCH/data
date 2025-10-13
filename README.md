@@ -1,5 +1,7 @@
 # data
 
+## run locally
+
 ```
 $ bash cli-common-setup-python.sh
 
