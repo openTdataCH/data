@@ -1,4 +1,4 @@
-name: Fetch/Publish occupancy-forecast-json-dataset
+name: Fetch/Publish BO / GO-realtime
 
 on:
   push:
