@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - feature/deploy-data
   schedule:
     - cron: '25 12 * * 1-5'   # daily, MON-FRI
   workflow_dispatch:      # Allows manual trigger
