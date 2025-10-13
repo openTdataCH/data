@@ -1,5 +1,7 @@
 # data
 
+Check [.github/workflows](./.github/workflows)
+
 ## run locally
 
 ```
