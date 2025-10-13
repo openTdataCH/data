@@ -1,11 +1,11 @@
-name: Fetch/Publish BO / GO-realtime
+name: Fetch/Publish Business Organisations
 
 on:
   push:
     branches:
       - main
   schedule:
-    - cron: '15 12 * * 1-5'   # daily, MON-FRI
+    - cron: '35 12 * * 1-5'   # daily, MON-FRI
   workflow_dispatch:      # Allows manual trigger
 
 permissions:
@@ -35,13 +35,9 @@ jobs:
         run: |
           bash ./cli-common-fetch-dataset.sh business-organisations full_business_organisation_versions
 
-      - name: Fetch GO-realtime
-        run: |
-          bash ./cli-common-fetch-dataset.sh go-realtime
-
       - name: Prepare site
         run: |
-          bash ./cli-common-create-site.sh occupancy-forecast-json-dataset
+          bash ./cli-common-create-site.sh business-organisations
 
       - uses: actions/upload-pages-artifact@v3
         with:
