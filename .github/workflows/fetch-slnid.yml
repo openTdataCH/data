@@ -34,7 +34,7 @@ jobs:
 
       - name: Fetch SLNID
         run: |
-          bash ./slnid-line-actual-date actual-date-line
+          bash ./cli-common-fetch-dataset.sh slnid-line-actual-date actual-date-line
 
       - name: Prepare site
         run: |
