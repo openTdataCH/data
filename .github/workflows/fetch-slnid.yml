@@ -37,7 +37,7 @@ jobs:
 
       - name: Prepare site
         run: |
-          bash ./cli-common-create-site.sh occupancy-forecast-json-dataset
+          bash ./cli-common-create-site.sh slnid-line-actual-date
 
       - uses: actions/upload-pages-artifact@v3
         with:
