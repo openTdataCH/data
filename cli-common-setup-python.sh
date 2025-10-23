@@ -8,10 +8,11 @@ source $DIR/cli-common.sh
 # REPO_BRANCH=develop
 # TODO - change to develop
 REPO_BRANCH=feature/fix-fetch-atlas-package
+REPO_URL=https://github.com/openTdataCH/showcases.git
 
 # STEP 1 - clone showcases repo
 rm -rf $REPO_PATH
-git clone --depth 1 --branch $REPO_BRANCH https://github.com/openTdataCH/showcases.git $REPO_PATH
+git clone --depth 1 --branch $REPO_BRANCH $REPO_URL $REPO_PATH
 # git -C external log -1 --pretty='format:%h %ad %s' --date=iso
 
 # STEP 2 - install Python + dependencies
