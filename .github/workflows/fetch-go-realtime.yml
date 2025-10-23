@@ -1,9 +1,6 @@
 name: Fetch/Publish GO-realtime
 
 on:
-  push:
-    branches:
-      - main
   schedule:
     - cron: '15 12 * * 1-5'   # daily, MON-FRI
   workflow_dispatch:      # Allows manual trigger
