@@ -30,7 +30,7 @@ jobs:
 
       - name: Fetch BO
         run: |
-          bash ./cli-common-fetch-dataset.sh business-organisations full_business_organisation_versions
+          bash ./cli-common-fetch-dataset.sh business-organisations full-business-organisation
 
       - name: Prepare site
         run: |
