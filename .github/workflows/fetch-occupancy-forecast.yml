@@ -4,6 +4,7 @@ on:
   schedule:
     - cron: '0 5 * * 1-5'   # daily, MON-FRI
   workflow_dispatch:      # Allows manual trigger
+
 permissions:
   contents: read
   pages: write
