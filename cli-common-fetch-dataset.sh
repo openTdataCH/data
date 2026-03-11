@@ -4,12 +4,12 @@ set -euo pipefail
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 source $DIR/cli-common.sh
-source $DIR/.venv/bin/activate
+PYTHON_PATH=$REPO_PATH/tools/ckan-utils/.venv/bin/python3
 
 DATASET="${1:?Usage: $0 <dataset>}"
 PREFIX="${2:-}"
 
-fetch_sh=(python3 $REPO_PATH/tools/ckan-utils/fetch_package_cli.py --package_id $DATASET)
+fetch_sh=($PYTHON_PATH $REPO_PATH/tools/ckan-utils/fetch_package_cli.py --package_id $DATASET)
 
 if [ -n "$PREFIX" ]; then
   fetch_sh+=(--resource_title "$PREFIX" --partial_match)
