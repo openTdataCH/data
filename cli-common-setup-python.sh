@@ -13,13 +13,11 @@ rm -rf $REPO_PATH
 git clone --depth 1 --branch $REPO_BRANCH $REPO_URL $REPO_PATH
 # git -C external log -1 --pretty='format:%h %ad %s' --date=iso
 
-# STEP 2 - install Python + dependencies
-python3 -m venv $DIR/.venv
-
-source $DIR/.venv/bin/activate
-
+echo "Setup tools/ckan-utils"
+# ckan-utils
+cd $REPO_PATH/tools/ckan-utils
+python3 -m venv ./.venv
+source ./.venv/bin/activate
 python3 -m pip install --upgrade pip
-python3 -m pip install --requirement $REPO_PATH/requirements.txt
+python3 -m pip install --requirement ./requirements.txt
 
-# STEP 3 - create data folders
-python3 $REPO_PATH/tools/scripts/setup.py
