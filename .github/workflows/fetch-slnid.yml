@@ -30,11 +30,11 @@ jobs:
 
       - name: Fetch SLNID
         run: |
-          bash ./cli-common-fetch-dataset.sh slnid-line-actual-date actual-date-line
+          bash ./cli-common-fetch-dataset.sh line-v2 actual-date-line
 
       - name: Prepare site
         run: |
-          bash ./cli-common-create-site.sh slnid-line-actual-date
+          bash ./cli-common-create-site.sh line-v2
 
       - uses: actions/upload-pages-artifact@v3
         with:

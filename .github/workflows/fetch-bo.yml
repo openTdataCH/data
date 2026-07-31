@@ -30,11 +30,11 @@ jobs:
 
       - name: Fetch BO
         run: |
-          bash ./cli-common-fetch-dataset.sh business-organisations full-business-organisation
+          bash ./cli-common-fetch-dataset.sh business-organisation-v2 full-business-organisation
 
       - name: Prepare site
         run: |
-          bash ./cli-common-create-site.sh business-organisations
+          bash ./cli-common-create-site.sh business-organisation-v2
 
       - uses: actions/upload-pages-artifact@v3
         with:
